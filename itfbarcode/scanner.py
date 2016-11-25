@@ -5,6 +5,8 @@ from . import parser
 
 
 def scan_image_y(im, start_x, end_x, y, scan_range=50):
+    if im.ndim > 2:
+        im = im[:, :, 0]
     if scan_range < 1:
         raise ValueError("Invalid scan_range: %s" % scan_range)
     dy = 0
@@ -20,6 +22,8 @@ def scan_image_y(im, start_x, end_x, y, scan_range=50):
 
 
 def scan_image_x(im, start_y, end_y, x, scan_range=50):
+    if im.ndim > 2:
+        im = im[:, :, 0]
     if scan_range < 1:
         raise ValueError("Invalid scan_range: %s" % scan_range)
     dx = 0

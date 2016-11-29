@@ -36,6 +36,8 @@ def scan_image_x(im, start_y, end_y, x, scan_range=50):
 
 def scan_image_y_random_lpn(im, start_x, end_x, y,
                             scan_range=50, lpn_range=(50, 150)):
+    if im.ndim > 2:
+        im = im[:, :, 0]
     if scan_range < 1:
         raise ValueError("Invalid scan_range: %s" % scan_range)
     if (lpn_range[1] - lpn_range[0]) < 2:
@@ -57,6 +59,8 @@ def scan_image_y_random_lpn(im, start_x, end_x, y,
 
 def scan_image_x_random_lpn(im, start_y, end_y, x,
                             scan_range=50, lpn_range=(50, 150)):
+    if im.ndim > 2:
+        im = im[:, :, 0]
     if scan_range < 1:
         raise ValueError("Invalid scan_range: %s" % scan_range)
     if (lpn_range[1] - lpn_range[0]) < 2:
@@ -78,6 +82,8 @@ def scan_image_x_random_lpn(im, start_y, end_y, x,
 
 def scan_image_y_lpn_range(im, start_x, end_x, y,
                            scan_y_range=50, lpn_range=(1, 201)):
+    if im.ndim > 2:
+        im = im[:, :, 0]
     if scan_y_range < 1:
         raise ValueError("Invalid scan_range: %s" % scan_y_range)
     if (lpn_range[1] - lpn_range[0]) < 2:
@@ -113,6 +119,8 @@ def scan_image_y_lpn_range(im, start_x, end_x, y,
 
 def scan_image_x_lpn_range(im, start_y, end_y, x,
                            scan_x_range=50, lpn_range=(1, 201)):
+    if im.ndim > 2:
+        im = im[:, :, 0]
     if scan_x_range < 1:
         raise ValueError("Invalid scan_range: %s" % scan_x_range)
     if (lpn_range[1] - lpn_range[0]) < 2:
